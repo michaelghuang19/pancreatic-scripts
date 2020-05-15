@@ -12,7 +12,7 @@ files = c('GSM3036911_PDAC-A-ST1.tsv',
           'GSM4100723_PDAC-B-st2.tsv', 
           'GSM4100724_PDAC-B-st3.tsv')
 
-files = c('GSM3405534_PDAC-B-ST1.tsv')
+# files = c('GSM3405534_PDAC-B-ST1.tsv')
 
 for (file in files) {
   
@@ -54,6 +54,8 @@ for (file in files) {
     # xlim(0, 50) +
     # ylim(0, 50) + 
     geom_point(shape=15) + 
+    scale_x_continuous(breaks = round(seq(min(plotdata$x), max(plotdata$x), by = 1),1)) +
+    scale_y_continuous(breaks = round(seq(min(plotdata$y), max(plotdata$y), by = 1),1)) +
     coord_fixed())
   
   ggsave(paste("figures/", 
