@@ -13,7 +13,7 @@ files = c('GSM3036911_PDAC-A-ST1.tsv',
           'GSM4100724_PDAC-B-st3.tsv')
 
 files = c('GSM3036911_PDAC-A-ST1.tsv')
-# files = c('GSM3405534_PDAC-B-ST1.tsv')
+files = c('GSM3405534_PDAC-B-ST1.tsv')
 
 
 for (file in files) {
