@@ -56,7 +56,8 @@ for (file in files) {
     geom_point(shape=15) + 
     coord_fixed())
   
-  ggsave(str_replace(file, "tsv", "pdf"), 
+  ggsave(paste("figures/", 
+               str_replace(file, "tsv", "pdf")), 
          plot = last_plot())
   
 }
