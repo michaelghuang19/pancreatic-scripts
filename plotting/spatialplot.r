@@ -12,12 +12,14 @@ files = c('GSM3036911_PDAC-A-ST1.tsv',
           'GSM4100723_PDAC-B-st2.tsv', 
           'GSM4100724_PDAC-B-st3.tsv')
 
+files = c('GSM3036911_PDAC-A-ST1.tsv')
 # files = c('GSM3405534_PDAC-B-ST1.tsv')
+
 
 for (file in files) {
   
   print(file)
-  data <- read.table(file = file, 
+  data <- read.table(file = str_c('data/', file), 
                      sep = '\t', 
                      header = TRUE,
                      check.names = FALSE)
@@ -56,7 +58,10 @@ for (file in files) {
     geom_point(shape=15) + 
     scale_x_continuous(breaks = round(seq(min(plotdata$x), max(plotdata$x), by = 1),1)) +
     scale_y_continuous(breaks = round(seq(min(plotdata$y), max(plotdata$y), by = 1),1)) +
-    coord_fixed())
+    theme( axis.title.x=element_blank(),
+           axis.title.y=element_blank())
+    # + coord_fixed()
+  )
   
   ggsave(paste("figures/", 
                str_replace(file, "tsv", "pdf")), 
