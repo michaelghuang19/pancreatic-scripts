@@ -4,7 +4,7 @@ from PIL import Image
 import csv
 
 dir = './figures/'
-paperPNG = 'coloredA-ST1paper.png'
+paperPNG = 'coloredB-ST1paper.png'
 
 im = Image.open(dir + paperPNG)
 pic = im.load()
@@ -47,8 +47,8 @@ aDict = {pink:"pink", blue:"blue", grey:"grey", green:"green"}
 bDict = {pink:"pink", turq:"turq", grey:"grey"}
 
 # TODO: EDIT THIS VALUE HERE WHEN RE-RUNNING
-preset = aPreset
-colorDict = aDict
+preset = bPreset
+colorDict = bDict
 count = 0
 
 # Actual reader
