@@ -4,7 +4,7 @@ from PIL import Image
 import csv
 
 dir = './figures/'
-paperPNG = 'coloredB-ST1paper.png'
+paperPNG = 'coloredA-ST1paper.png'
 
 im = Image.open(dir + paperPNG)
 pic = im.load()
@@ -47,8 +47,8 @@ aDict = {pink:"pink", blue:"blue", grey:"grey", green:"green"}
 bDict = {pink:"pink", turq:"turq", grey:"grey"}
 
 # TODO: EDIT THIS VALUE HERE WHEN RE-RUNNING
-preset = bPreset
-colorDict = bDict
+preset = aPreset
+colorDict = aDict
 count = 0
 
 # Actual reader
@@ -64,11 +64,11 @@ with open(paperPNG + '.csv', mode='w', newline='') as file:
             color = pic[xcoord, ycoord]
             if color != (255,255,255,255):
                 print(str(xcoord) + ", " + str(ycoord))
-                print(str(x) + ", " + str(y))
+                print(str(x - 1) + ", " + str(max(preset["y"]) - y))
                 print(color)
 
                 writer.writerow([str(xcoord) + ", " + str(ycoord),
-                str(x) + ", " + str(y), colorDict[color]])
+                str(x - 1) + ", " + str(max(preset["y"]) - y), colorDict[color]])
                 count = count + 1
 
 print(count)
