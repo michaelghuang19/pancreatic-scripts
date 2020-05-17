@@ -1,8 +1,12 @@
+import matplotlib.pyplot as plt
 import PIL
 from PIL import Image
+import csv
 
-im = Image.open('./figures/coloredA-ST1paper.png')
-# im = Image.open('./figures/coloredB-ST1paper.png')
+dir = './figures/'
+paperPNG = 'coloredA-ST1paper.png'
+
+im = Image.open(dir + paperPNG)
 pic = im.load()
 # print(im.size)
 
@@ -36,29 +40,35 @@ grey = (102, 102, 102, 255)
 green = (25, 157, 119, 255)
 turq = (141, 208, 197, 255)
 
-aSet = {pink, blue, grey, green}
-bSet = {pink, turq, grey}
+aDict = {pink:"pink", blue:"blue", grey:"grey", green:"green"}
+bDict = {pink:"pink", turq:"turq", grey:"grey"}
 
-colorSet = aSet
+colorDict = aDict
 count = 0
 xValues = ax
-yValues = ay 
+yValues = ay
 xOffset = axo
 yOffset = ayo
 xIter = axi
 yIter = ayi
 
-for x in xValues:
-    for y in yValues:
-        xcoord = xOffset + ((x - min(xValues)) * axi)
-        ycoord = yOffset + ((y - min(yValues)) * ayi)
+with open(paperPNG + '.csv', mode='w', newline='') as file:
 
-        color = pic[xcoord, ycoord]
-        if color != (255,255,255,255):
-            print(str(xcoord) + ", " + str(ycoord))
-            print(str(x) + ", " + str(y))
-            print(color)
-            count = count + 1
+    writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+    for x in xValues:
+        for y in yValues:
+            xcoord = xOffset + ((x - min(xValues)) * axi)
+            ycoord = yOffset + ((y - min(yValues)) * ayi)
+
+            color = pic[xcoord, ycoord]
+            if color != (255,255,255,255):
+                print(str(xcoord) + ", " + str(ycoord))
+                print(str(x) + ", " + str(y))
+                print(color)
+                writer.writerow([str(xcoord) + ", " + str(ycoord),
+                str(x) + ", " + str(y), colorDict[color]])
+                count = count + 1
 
 print(count)
 
