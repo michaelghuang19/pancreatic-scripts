@@ -62,11 +62,11 @@ with open(paperPNG + '.csv', mode='w', newline='') as file:
             ycoord = preset["yo"] + ((y - min(preset["y"])) * preset["yi"])
 
             color = pic[xcoord, ycoord]
-            print(str(xcoord) + ", " + str(ycoord))
             if color != (255,255,255,255):
                 print(str(xcoord) + ", " + str(ycoord))
                 print(str(x) + ", " + str(y))
                 print(color)
+
                 writer.writerow([str(xcoord) + ", " + str(ycoord),
                 str(x) + ", " + str(y), colorDict[color]])
                 count = count + 1
