@@ -3,10 +3,9 @@ import PIL
 from PIL import Image
 import csv
 
-dir = './figures/'
 paperPNG = 'coloredB-ST1paper.png'
 
-im = Image.open(dir + paperPNG)
+im = Image.open('../figures/' + paperPNG)
 pic = im.load()
 # print(im.size)
 

@@ -1,3 +1,4 @@
+coord,color
 10x10,pink
 10x13,pink
 10x14,pink
@@ -195,7 +196,7 @@
 19x20,green
 19x21,green
 19x22,green
-19x23,p
+19x23,pink
 19x24,green
 19x25,green
 19x26,green
