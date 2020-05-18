@@ -1,5 +1,3 @@
-import csv
-import numpy as np
 import pandas as pd
 
 version = 'GSM3036911_PDAC-A-ST1'
