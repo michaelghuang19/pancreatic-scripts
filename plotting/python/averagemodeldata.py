@@ -1,4 +1,3 @@
-import os
 import csv
 import numpy as np
 import pandas as pd
@@ -15,10 +14,8 @@ data = pd.read_csv(dataFile, sep='\t')
 if (version == 'GSM3036911_PDAC-A-ST1'):
     data = data.T
 
-
-# data.set_index('Gene')
-# data.set_index(data.index)
-print(data)
+# print(data)
+# print(data['Genes'])
 
 colorDict = dict()
 
@@ -35,5 +32,18 @@ for i in range(0, len(colordf)):
 # print(colorDict)
 # data[]
 
-# for category in colorDict:
-    # colorDict[category]
+for category in colorDict:
+    with open(version + category + '.csv', mode='w', newline='') as file:
+        writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        df = pd.DataFrame(data['Genes'])
+
+        for area in colorDict[category]:
+            df[str(area)] = data[str(area)]
+
+        writer.writerow(data['Genes'])
+        writer.writerow(df.mean(axis=1))
+        # writer.writerow(data[str(area)])
+
+            # print(colorDict[category])
+
+        print(df)
