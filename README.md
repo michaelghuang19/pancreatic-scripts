@@ -7,7 +7,7 @@ Various scripts for pancreatic ductal adenocarcinoma research
 
 **significant**: originally GSE111672/ST/tsv/significant, contains original significant p-value data that are then better presented in pvalues
 
-**plotting**: new plotting scripts trying to manually annotate PDAC-A and PDAC-B data
+**plotting**: new plotting scripts trying to manually annotate PDAC-A and PDAC-B data, as well as re-formatting and cleaning to present as model input
 
 ## Citations
 
