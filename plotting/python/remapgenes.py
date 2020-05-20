@@ -69,9 +69,17 @@ def get_median(version):
     datafile = dataindex + 'entrez/entrez-' + version + '.csv'
     metafile = dataindex + 'metabolic/metabolic-' + version + '.csv'
 
+    data = pd.read_csv(datafile)
+    meta = pd.read_csv(metafile, header = None)
+    meta.columns = {'genes', 'state'}
+
+    print(version + ' cutoff is ' + str(meta.iloc[500]['state']))
+
 # only keep median
 
 if __name__ == "__main__":
-    meta_set = get_metabolic()
+    # meta_set = get_metabolic()
+
     for version in versionSet:
-        keep_metabolic(meta_set, version)
+        # keep_metabolic(meta_set, version)
+        get_median(version)
