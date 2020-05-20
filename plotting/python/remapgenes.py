@@ -65,13 +65,13 @@ def keep_metabolic(meta_set, version):
                 if entrez in meta_set:
                     writer.writerow(series)
 
-def get_median(version):
+def get_cutoff(version):
     datafile = dataindex + 'entrez/entrez-' + version + '.csv'
     metafile = dataindex + 'metabolic/metabolic-' + version + '.csv'
 
     data = pd.read_csv(datafile)
     meta = pd.read_csv(metafile, header = None)
-    meta.columns = {'genes', 'state'}
+    meta.columns = ['genes', 'state']
 
     print(version + ' cutoff is ' + str(meta.iloc[500]['state']))
 
@@ -82,4 +82,4 @@ if __name__ == "__main__":
 
     for version in versionSet:
         # keep_metabolic(meta_set, version)
-        get_median(version)
+        get_cutoff(version)
