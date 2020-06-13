@@ -1,0 +1,9 @@
+thresholds:
+
+A-ST1blue/pancreatic_tissue 483 = 0.5, 500 = 0.047619048
+A-ST1green/stroma 500 = 0.014925373 OR 0.01
+A-ST1pink/duct_epithelium 475 = 0.03, 500 = 0.025423729
+A-ST1rey/cancer_region 462 = 0.025, 500 = 0.017699115
+B-ST1grey/cancer_region 475 = 0.075, 500 = 0.06741573
+B-ST1pink/duct_epithelium 470 = 0.15, 500 = 0.14893617
+B-ST1turq/interstitium 465 = 0.075, 500 = 0.068181818
